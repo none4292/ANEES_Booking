@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block 'body' %}
+
+<div class="hero-wrap js-fullheight" style="background-color: dodgerblue;">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+			data-scrollax-parent="true">
+			<div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+				<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
+						class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a
+							href="hotel.html">Hotel</a></span> <span>Hotel Single</span></p>
+				<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels Details
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<section class="ftco-section ftco-degree-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="row">
+					<div class="col-md-12 ftco-animate">
+						<div class="single-slider owl-carousel">
+							<div class="item">
+								<div class="hotel-img" style="background-image: url({{object.image.url}});">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+						<span>Our Best hotels &amp; Rooms</span>
+						<h2>{{object}}</h2>
+                        <hr>
+                        <h4>description</h4>
+						<p> {{object.description|safe}}</p>
+                        <h4>lifestaly</h4>
+                        <p> {{object.lifestaly|safe}}</p>
+                        <hr>
+					</div>
+
+
+						
+						<div class="fields">
+							<h4>user info</h4>
+							<hr>
+							<div class="row">
+								
+								<div class="col-md-6">
+										<p>user:{{object.seeker}}</p>
+								</div>
+								<div class="col-md-6">
+										<p>price:{{object.price}} / mounth</p>
+								</div>
+								<div class="col-md-6">
+                                        <p>place:{{object.place}}</p>
+								</div>
+								<div class="col-md-6">
+										<p>avablie_at:{{object.avablie_at}}</p>
+								</div>
+								<div class="col-md-6">
+                                        <p>rommate_gender:{{object.gender}}</p>
+								</div>
+								<div class="col-md-6">
+                                        <p>user_gender:{{object.gender}}</p>
+								</div>
+							</div>
+						</div>
+                        <hr>
+						<form method=POST>
+						 {% csrf_token %}
+						     {% bootstrap_form form %}
+							{% buttons %}
+								<button type="submit" class="btn btn-primary py-3">review</button>
+							{% endbuttons %}
+						</form>
+					</div>
+
+					<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
+						<h4 class="mb-4">Property Feedback</h4>
+						<div class="row">
+
+							{% for review in reviews %}
+							<div class="col-md-4">
+								<div class="destination">
+									<div class="text p-3">
+										<div class="d-flex">
+											<div class="one">
+												<h3><a href="">{{review.author}}</a></h3>
+											</div>
+										</div>
+										<p>{{review.feedback}}</p>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+
+				</div>
+			</div> <!-- .col-md-8 -->
+		</div>
+	</div>
+</section> <!-- .section -->
+
+
+{% endblock 'body' %}

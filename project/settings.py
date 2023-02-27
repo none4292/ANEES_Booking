@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'roommseters',
     'bootstrap4',
     'django_filters',
+    'blog',
 ]
 
 MIDDLEWARE = [
