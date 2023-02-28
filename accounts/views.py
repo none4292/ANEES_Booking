@@ -4,7 +4,8 @@ from .forms import UserForm , ProfileForm , UserCreateForm
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-
+from roommseters.models import Roommset 
+from django.contrib.auth.models import User
 # Create your views here.
 
 def signup(request):
@@ -28,7 +29,19 @@ def signup(request):
 
 def profile(request):
     profile = Proflie.objects.get(user = request.user)
-    return render(request,'profile/profile.html',{'obj':profile})
+    if request.user.is_authenticated:
+        user = User.objects.get(id=request.user.id)
+            
+        user_roomset = Roommset.objects.filter(seeker=user)
+        print(user_roomset)
+    else:
+        return redirect('/')
+
+    context = {
+        'obj':profile,
+        'user_roomset':user_roomset,
+    }
+    return render(request,'profile/profile.html', context)
 
 
 

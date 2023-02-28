@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>انيس</title>
+    <title>ANEES</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -26,7 +26,7 @@
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/">dirEngine.</a>
+      <a class="navbar-brand" href="/"> ANEES </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -35,10 +35,10 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{% url 'about:about' %}" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="{% url 'roommseters:room_list' %}" class="nav-link">find place</a></li>
-          <li class="nav-item"><a href="{% url 'blog:serachers_list' %}" class="nav-link">list place</a></li>
+          <li class="nav-item"><a href="{% url 'roommseters:room_list' %}" class="nav-link">List Place</a></li>
+          <li class="nav-item"><a href="{% url 'blog:serachers_list' %}" class="nav-link">Find Place</a></li>
           {% if request.user.is_authenticated %}
-          <li class="nav-item cta"><a href="{% url 'accounts:profile' %}" class="nav-link"><span>profile</span></a></li>
+          <li class="nav-item cta"><a href="{% url 'accounts:profile' %}" class="nav-link"><span>My Profile</span></a></li>
             {% block nav %}
               
             {% endblock nav %}

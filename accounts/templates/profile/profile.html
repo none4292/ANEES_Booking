@@ -8,8 +8,8 @@
 			data-scrollax-parent="true">
 			<div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
 				<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
-						class="mr-2"><a href="index.html">Home</a></span> <span>Hotel</span></p>
-				<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels</h1>
+						class="mr-2"><a href="{% url 'home:home' %}">Home</a></span> <span>Profile</span></p>
+				<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> Profile </h1>
 			</div>
 		</div>
 	</div>
@@ -50,24 +50,32 @@
                       <p class="text-muted">{{obj.user.email}}</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>number</h6>
+                      <h6>Number</h6>
                       <p class="text-muted">{{obj.contact_number}}</p>
                     </div>
                   </div>
-                  <h6>more</h6>
+                  <h6>More..</h6>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>address</h6>
+                      <h6>Address</h6>
                       <p class="text-muted">{{obj.address}}</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>gender</h6>
+                      <h6>Gender</h6>
                       <p class="text-muted">{{obj.gender}}</p>
                     </div>
                   </div>
+                  <h6></h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6></h6>
+                    
+                    </div>
+                  </div>
                   <div class="d-flex justify-content-start">
-                    <a type="button" class="btn btn-secondary" href = "{% url 'accounts:profile_edit' %}">edit profile</a>
+                    <a type="button" class="btn btn-secondary" href = "{% url 'accounts:profile_edit' %}">Edit Profile</a>
                   </div>
                 </div>
               </div>
@@ -78,6 +86,88 @@
     </div>
   </section>
 
+  <style>
+    .cards{
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 50rem;
+      justify-content: space-around;
+    }
+    .thecard{
+      width: 300px;
+      height: 350px;
+      border-radius: 10px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.193);
+      overflow: hidden;
+      margin: 30px;
+    }
+    .img_cover{
+      display: flex;
+      width: 100%;
+      height: 200px;
+      align-items: center;
+      overflow:hidden;
+    }
+    .img_cover img{
+      width: 100%;
+    }
+    .img_desc{
+      padding: 5px;
+    }
+    .img_desc h2{
+      font-size: 15px;
+    }
+    .img_desc p{
+      font-size: 13px;
+    }
+    .Cards_section{
+      margin: auto;
+      width:100%;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 20rem;
+      background-color: white;
+    }
+    .cardbtn{
+      width: 100%;
+      align-items: center;
+    }
+    .cardbtn button{
+      width: 100px;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgb(0, 106, 255);
+      color: black;
+    }
+    .section_a{
+      display:flex;
+    }
+  </style>
+  <section class="section_a">
+    <div class="Cards_section">
 
+      
+      {% for single_user_roomset in user_roomset %}
+          <div class="cards">
+          <div class="thecard">
+            <div class="img_cover">
+              <img src="{{single_user_roomset.image.url}}" alt="">
+            </div>
+            <div class="img_desc">
+              <h2>{{single_user_roomset.title}}</h2>
+              <p>{{single_user_roomset.description|truncatechars:40}}</p>
+            </div>
+            <div class="cardbtn">
+              <button>click</button>
+            </div>
+          </div>
+          </div>
+      {% endfor %}
 
+    </div>
+  </section>
+  
 {% endblock %}

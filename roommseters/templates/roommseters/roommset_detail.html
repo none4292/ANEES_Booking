@@ -10,10 +10,9 @@
 			data-scrollax-parent="true">
 			<div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
 				<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
-						class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a
-							href="hotel.html">Hotel</a></span> <span>Hotel Single</span></p>
-				<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels Details
-				</h1>
+						class="mr-2"><a href="{% url 'home:home' %}">Home</a></span> <span class="mr-2"><a
+							href="{% url 'roommseters:room_list' %}"> List place </a></span> <span>Details</span></p>
+				<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> Room Details </h1>
 			</div>
 		</div>
 	</div>
@@ -34,12 +33,12 @@
 						</div>
 					</div>
 					<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
-						<span>Our Best hotels &amp; Rooms</span>
+						<span><h4>Title</h4></span>
 						<h2>{{object}}</h2>
                         <hr>
-                        <h4>description</h4>
+                        <h4>Description</h4>
 						<p> {{object.description|safe}}</p>
-                        <h4>lifestaly</h4>
+                        <h4>Lifestaly</h4>
                         <p> {{object.lifestaly|safe}}</p>
                         <hr>
 					</div>
