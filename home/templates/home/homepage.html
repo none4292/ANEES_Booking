@@ -15,8 +15,8 @@
               <span class="d-flex justify-content-md-center align-items-md-center"><a href="{% url 'roommseters:room_list' %}"><i class="flaticon-find"></i> List a place </a></span>
               <span class="d-flex justify-content-md-center align-items-md-center"><a href="{% url 'blog:serachers_list' %}"><i class="flaticon-serach"></i> Find a place </a></span> 
             {% else %}
-              <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-meeting-point"></i> Login </a></span> 
-              <span class="d-flex justify-content-md-center align-items-md-	center"><a href="#"><i class="flaticon-shopping-bag"></i> Join us </a></span>
+              <span class="d-flex justify-content-md-center align-items-md-center"><a href=" {% url 'login' %} "><i class="flaticon-meeting-point"></i> Login </a></span> 
+              <span class="d-flex justify-content-md-center align-items-md-	center"><a href="{% url 'accounts:signup' %}"><i class="flaticon-shopping-bag"></i> Join us </a></span>
               {% endif %}
           </p>
         </div>

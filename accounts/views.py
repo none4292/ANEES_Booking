@@ -7,7 +7,7 @@ from django.contrib import messages
 from roommseters.models import Roommset 
 from django.contrib.auth.models import User
 # Create your views here.
-
+# view for user signup to get information from the django from and create the user 
 def signup(request):
     if request.method == 'POST':
         signup_form = UserCreateForm(request.POST)
@@ -26,7 +26,7 @@ def signup(request):
     return render(request,'registration/signup.html',{'signup_form':signup_form})
 
 
-
+# get the proflie data for user authenticate
 def profile(request):
     profile = Proflie.objects.get(user = request.user)
     if request.user.is_authenticated:
@@ -44,7 +44,7 @@ def profile(request):
     return render(request,'profile/profile.html', context)
 
 
-
+# get the proflie data from the django form and edit the data and send it bacck by user 
 def profile_edit(request):
     profile = Proflie.objects.get(user = request.user)
     if request.method == 'POST':

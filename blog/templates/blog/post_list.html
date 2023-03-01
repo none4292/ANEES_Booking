@@ -1,106 +1,130 @@
-{% extends 'base.html' %}
-{% block nav %}
-<li class="nav-item cta"><a href="{% url 'roommseters:add_property' %}" class="nav-link"><span>Add Listin</span></a></li>
-{% endblock nav %}
-{% block 'body' %}
-{% load bootstrap4 %}
-    <div class="hero-wrap js-fullheight" style="background-color: darkturquoise;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{% url 'home:home' %}">Home</a></span> <span> Find place </span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> Find The Seekers </h1>
-          </div>
-        </div>
+{% extends 'base.html' %} {% load bootstrap4 %} {% block nav %}
+<li class="nav-item cta">
+  <a href="{% url 'roommseters:add_property' %}" class="nav-link"
+    ><span>Add Listin</span></a
+  >
+</li>
+{% endblock nav %} {% block 'body' %}
+<div class="hero-wrap js-fullheight" style="background-color: darkturquoise">
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+      data-scrollax-parent="true"
+    >
+      <div
+        class="col-md-9 ftco-animate text-center"
+        data-scrollax=" properties: { translateY: '70%' }"
+      >
+        <p
+          class="breadcrumbs"
+          data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
+        >
+          <span class="mr-2"><a href="{% url 'home:home' %}">Home</a></span>
+          <span> List place </span>
+        </p>
+        <h1
+          class="mb-3 bread"
+          data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
+        >
+          <!-- List the places -->
+          list seeker
+        </h1>
       </div>
     </div>
+  </div>
+</div>
 
-
-    <section class="ftco-section ftco-degree-bg">
-      <div class="container">
-        <div class="row">
-        	<div class="col-lg-3 sidebar">
-        		<div class="sidebar-wrap bg-light ftco-animate">
-        			<h3 class="heading mb-4"> Filter </h3>
-        			<form method="get">
-        			<div class="fields">
-						{% bootstrap_form form.form %}
-						{% buttons %}
-		              <div class="form-group">
-		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-		              </div>
-					  {% endbuttons %}
-		            </div>
-	            </form>
-        		</div>
-          </div>
-          <div class="col-lg-9">
-          	<div class="row">
-                {% for obj in object_list %}
-                <div class="col-md-4 ftco-animate">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{obj.image.url}});">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="icon-search2"></span>
-                    </div>
-                        </a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">{{obj}}</a></h3>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">${{obj.price}}<br><small>/Mounth</small></span>
-                                </div>
-                            </div>
-                            <p>{{obj.description}}</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> {{obj.palce}}</span> 
-                                <span class="ml-auto"><a href="#">More info</a></span>
-                            </p>
-                        </div>
-                    </div>
-        </div>                   
-                {% endfor %}
-
-          	</div>
-
-{% if is_paginated %}
-				<div class="row mt-5">
-					<div class="col text-center">
-						<div class="block-27">
-							<ul>
-								{% if page_obj.has_previous %}
-									<li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
-								{% else %}
-									<li class="disabled"><span>&laquo;</span></li>
-								{% endif %}
-
-								{% for i in paginator.page_range %}
-									{% if page_obj.number == i %}
-										<li class="active"><span>{{ i }}</span></li>
-									{% else %}
-										<li><a href="?page={{ i }}">{{ i }}</a></li>
-									{% endif %}
-								{% endfor %}
-
-								{% if page_obj.has_next %}
-									<li><a href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
-								{% else %}
-									<li class="disabled"><span>&raquo;</span></li>
-								{% endif %}
-							</ul>
-						</div>
-					</div>
-				</div>
-				{% endif %}
-          </div> <!-- .col-md-8 -->
+<section class="ftco-section ftco-degree-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 sidebar">
+        <div class="sidebar-wrap bg-light ftco-animate">
+          <h3 class="heading mb-4">Find City</h3>
+          <form method="get">
+            <div class="fields">
+              {% bootstrap_form form.form %} {% buttons %}
+              <div class="form-group">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary py-3 px-5"
+                />
+              </div>
+              {% endbuttons %}
+            </div>
+          </form>
         </div>
       </div>
-    </section> <!-- .section -->
+      <div class="col-lg-9">
+        <div class="row">
+          {% for obj in object_list %}
+          <div class="col-md-6   ftco-animate">
+            <div class="destination">
+              <a href="{% url 'roommseters:room_detail' obj.id %}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{obj.image.url}});">
+                <div class="icon d-flex justify-content-center align-items-center">
+                  <span class="icon-search2"></span>
+                </div>
+              </a>
+              <div class="text p-3">
+                <div class="d-flex">
+                  <div class="one">
+                    <h3>
+                      <a href="{% url 'roommseters:room_detail' obj.id %}">{{obj}}</a>
+                    </h3>
+                  </div>
+                  <div class="two">
+                    <span class="price per-price">{{obj.price}} SR<small>/mounth</small></span>
+                  </div>
+                </div>
+                <p>{{obj.description|safe|truncatechars:40}}</p>
+                <hr />
+                <p class="bottom-area d-flex">
+                  <span><i class="icon-map-o"></i> {{obj.palce}}</span>
+                  <span class="ml-auto"><a href="{% url 'roommseters:room_detail' obj.id %}">More Info</a></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
 
- 
-  
-    {% endblock 'body' %}
+        {% if is_paginated %}
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                {% if page_obj.has_previous %}
+                <li>
+                  <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                </li>
+                {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+                {% endif %}
+                {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                <li class="active"><span>{{ i }}</span></li>
+                {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li>
+                  <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                </li>
+                {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <!-- .col-md-8 -->
+    </div>
+  </div>
+</section>
+<!-- .section -->
+
+{% endblock 'body' %}

@@ -9,7 +9,7 @@ GENDER = (
 )
 TYPE = (
     ('seeker','seeker'),
-    ('seracher','seracher')
+    ('owner','owner')
 )
 class Roommset(models.Model):
     seeker = models.ForeignKey(User, related_name='property_owner', on_delete=models.CASCADE)
@@ -19,7 +19,7 @@ class Roommset(models.Model):
     place = models.ForeignKey('Place', related_name='property_place', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='propery/')
     created_at = models.DateTimeField(default=timezone.now)
-    avablie_at = models.DateTimeField(blank=True, null=True)
+    avablie_at = models.CharField(max_length=50 , blank=True, null=True)
     gender =  models.CharField(max_length = 50, choices = GENDER)
     lifestaly = models.TextField(max_length=750)
     type_seeker = models.CharField(max_length = 50, choices = TYPE,null = True, blank=True)

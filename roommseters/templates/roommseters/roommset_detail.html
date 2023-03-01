@@ -33,44 +33,91 @@
 						</div>
 					</div>
 					<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
-						<span><h4>Title</h4></span>
-						<h2>{{object}}</h2>
+						<div class="item align-items-center">
+						<span><h2>Title</h2></span>
+						<h3>{{object}}</h3>
+						</div>
+
                         <hr>
-                        <h4>Description</h4>
-						<p> {{object.description|safe}}</p>
-                        <h4>Lifestaly</h4>
-                        <p> {{object.lifestaly|safe}}</p>
+						<div class="item align-items-center">
+							<span><h2>description</h2></span>
+							<h3>{{object.description}}</h3>
+							</div>
+							<hr>
+							<div class="item align-items-center">
+								<span><h2>Roommate preference</h2></span>
+								<hr>
+								<div class="col">
+									<h4>life staly</h4>
+									<h5> - {{object.lifestaly}}</h5>
+								</div>
+								<div class="col">
+									<div class="col">
+										<h4>gender : </h4>
+										<h5> - {{object.gender}}</h5>
+									</div> 
+								</div>
+							</div>
                         <hr>
 					</div>
 
 
 						
 						<div class="fields">
-							<h4>user info</h4>
+							<h4> Offer information</h4>
 							<hr>
 							<div class="row">
 								
-								<div class="col-md-6">
-										<p>user:{{object.seeker}}</p>
+								<div class="col-md-5 mb-3">
+										<h5>user: {{object.seeker}}</h5>
 								</div>
-								<div class="col-md-6">
-										<p>price:{{object.price}} / mounth</p>
+								<div class="col-md-5 mb-3">
+										<h5>price: {{object.price}} / mounth</h5>
 								</div>
-								<div class="col-md-6">
-                                        <p>place:{{object.place}}</p>
+								<div class="col-md-5 mb-3">
+                                        <h5>place: {{object.place}}</h5>
 								</div>
-								<div class="col-md-6">
-										<p>avablie_at:{{object.avablie_at}}</p>
+								<div class="col-md-5 mb-3">
+										<h5>avablie_at: {{object.avablie_at}}</h5>
 								</div>
-								<div class="col-md-6">
-                                        <p>rommate_gender:{{object.gender}}</p>
+								<div class="col-md-5 mb-3">
+                                        <h5>rommate_gender: {{object.gender}}</h5>
 								</div>
-								<div class="col-md-6">
-                                        <p>user_gender:{{object.gender}}</p>
+								<div class="col-md-5 mb-3">
+                                        <h5>gender: {{info.gender}}</h5>
 								</div>
+								<div class="col-md-5 mb-3">
+									<h5>user_email: {{info.user.email}}</h5>
+							</div>
+							
+							<div class="col-md-5 mb-5">
+								<h5> Number: {{info.phone_number}}</h5>
+						</div>
 							</div>
 						</div>
                         <hr>
+
+						<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
+							<h4 class="mb-4">Property Feedback</h4>
+							<div class="row">
+	
+								{% for review in reviews %}
+								<div class="col-md-4">
+									<div class="destination">
+										<div class="text p-3">
+											<div class="d-flex">
+												<div class="one">
+													<h3><a href="">{{review.author}}</a></h3>
+												</div>
+											</div>
+											<p>{{review.feedback}}</p>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+	
 						<form method=POST>
 						 {% csrf_token %}
 						     {% bootstrap_form form %}
@@ -80,26 +127,6 @@
 						</form>
 					</div>
 
-					<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
-						<h4 class="mb-4">Property Feedback</h4>
-						<div class="row">
-
-							{% for review in reviews %}
-							<div class="col-md-4">
-								<div class="destination">
-									<div class="text p-3">
-										<div class="d-flex">
-											<div class="one">
-												<h3><a href="">{{review.author}}</a></h3>
-											</div>
-										</div>
-										<p>{{review.feedback}}</p>
-									</div>
-								</div>
-							</div>
-							{% endfor %}
-						</div>
-					</div>
 
 				</div>
 			</div> <!-- .col-md-8 -->

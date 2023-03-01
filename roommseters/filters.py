@@ -6,8 +6,7 @@ from .models import Roommset
 
 class RoommsetFilter(django_filters.FilterSet):
     title = django_filters.CharFilter(lookup_expr='icontains')
-    price = django_filters.NumberFilter(lookup_expr='gte')
-    avablie_at = django_filters.DateFilter() 
+    price = django_filters.NumberFilter(lookup_expr='lte')
     class Meta:
         model = Roommset
-        fields = ['title','place', 'price','avablie_at','gender']
+        fields = ['title','place', 'price','gender']
