@@ -34,29 +34,27 @@
 					</div>
 					<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
 						<div class="item align-items-center">
-						<span><h2>Title</h2></span>
 						<h3>{{object}}</h3>
+						<span><i class="icon-map-o"></i> {{object.place}}</span>
+
 						</div>
 
                         <hr>
 						<div class="item align-items-center">
 							<span><h2>description</h2></span>
-							<h3>{{object.description}}</h3>
+							<p>{{object.description}}</p>
 							</div>
 							<hr>
 							<div class="item align-items-center">
-								<span><h2>Roommate preference</h2></span>
+								<span><h4>Roommate Preference</h4></span>
 								<hr>
 								<div class="col">
-									<h4>life staly</h4>
-									<h5> - {{object.lifestaly}}</h5>
+									<h5>Lifestyle :</h5>
+									<p>{{object.lifestaly}}</p>
 								</div>
 								<div class="col">
-									<div class="col">
-										<h4>gender : </h4>
-										<h5> - {{object.gender}}</h5>
-									</div> 
-								</div>
+									<p> gender: {{object.gender}}</p>
+								</div> 
 							</div>
                         <hr>
 					</div>
@@ -64,34 +62,31 @@
 
 						
 						<div class="fields">
-							<h4> Offer information</h4>
+							<h4> Owner Information </h4>
 							<hr>
 							<div class="row">
 								
 								<div class="col-md-5 mb-3">
-										<h5>user: {{object.seeker}}</h5>
+										<h5>User Name : {{object.seeker}}</h5>
 								</div>
 								<div class="col-md-5 mb-3">
-										<h5>price: {{object.price}} / mounth</h5>
+										<h5>Price : {{object.price}} / Mounth</h5>
 								</div>
 								<div class="col-md-5 mb-3">
-                                        <h5>place: {{object.place}}</h5>
+                                        <h5>Neighborhood : {{object.place}}</h5> 
 								</div>
 								<div class="col-md-5 mb-3">
-										<h5>avablie_at: {{object.avablie_at}}</h5>
+										<h5> Move-in Date : {{object.avablie_at}}</h5>
 								</div>
 								<div class="col-md-5 mb-3">
-                                        <h5>rommate_gender: {{object.gender}}</h5>
+                                        <h5>Gender : {{info.gender}}</h5>
 								</div>
 								<div class="col-md-5 mb-3">
-                                        <h5>gender: {{info.gender}}</h5>
-								</div>
-								<div class="col-md-5 mb-3">
-									<h5>user_email: {{info.user.email}}</h5>
+									<h5>Email : {{info.user.email}}</h5>
 							</div>
 							
 							<div class="col-md-5 mb-5">
-								<h5> Number: {{info.phone_number}}</h5>
+								<h5> PhoneNumber : {{info.phone_number}}</h5>
 						</div>
 							</div>
 						</div>

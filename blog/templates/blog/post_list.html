@@ -21,14 +21,13 @@
           data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
         >
           <span class="mr-2"><a href="{% url 'home:home' %}">Home</a></span>
-          <span> List place </span>
+          <span> Find Place </span>
         </p>
         <h1
           class="mb-3 bread"
           data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
         >
-          <!-- List the places -->
-          list seeker
+        Lets Find Place
         </h1>
       </div>
     </div>
@@ -40,7 +39,7 @@
     <div class="row">
       <div class="col-lg-3 sidebar">
         <div class="sidebar-wrap bg-light ftco-animate">
-          <h3 class="heading mb-4">Find City</h3>
+          <h3 class="heading mb-4">Filter</h3>
           <form method="get">
             <div class="fields">
               {% bootstrap_form form.form %} {% buttons %}
@@ -74,13 +73,13 @@
                     </h3>
                   </div>
                   <div class="two">
-                    <span class="price per-price">{{obj.price}} SR<small>/mounth</small></span>
+                    <span class="price per-price">{{obj.price}} SR<small>/Mounth</small></span>
                   </div>
                 </div>
                 <p>{{obj.description|safe|truncatechars:40}}</p>
                 <hr />
                 <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"></i> {{obj.palce}}</span>
+                  <span><i class="icon-map-o"></i> {{obj.place}}</span>
                   <span class="ml-auto"><a href="{% url 'roommseters:room_detail' obj.id %}">More Info</a></span>
                 </p>
               </div>

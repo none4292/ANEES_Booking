@@ -33,7 +33,6 @@ def profile(request):
         user = User.objects.get(id=request.user.id)
             
         user_roomset = Roommset.objects.filter(seeker=user)
-        print(user_roomset)
     else:
         return redirect('/')
 
