@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Proflie
+from django.http import HttpResponse, JsonResponse
 from .forms import UserForm , ProfileForm , UserCreateForm
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
@@ -42,6 +43,16 @@ def profile(request):
     }
     return render(request,'profile/profile.html', context)
 
+def delete_post(request, id):
+
+    print('post is deleted', id)
+    delete_roomset = Roommset.objects.get(id=id)
+    if delete_roomset:
+
+        delete_roomset.delete()
+        return redirect(reverse('accounts:profile'))
+    
+    return JsonResponse({'data':'Response'})
 
 # get the proflie data from the django form and edit the data and send it bacck by user 
 def profile_edit(request):
