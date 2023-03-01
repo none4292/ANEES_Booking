@@ -18,6 +18,7 @@ class Roommset(models.Model):
     price = models.IntegerField()
     place = models.ForeignKey('Place', related_name='property_place', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='propery/')
+    
     created_at = models.DateTimeField(default=timezone.now)
     avablie_at = models.CharField(max_length=50 , blank=True, null=True)
     gender =  models.CharField(max_length = 50, choices = GENDER)
@@ -25,6 +26,10 @@ class Roommset(models.Model):
     type_seeker = models.CharField(max_length = 50, choices = TYPE,null = True, blank=True)
     def __str__(self):
         return self.title
+    
+
+
+    
 
 class Place(models.Model):
     name = models.CharField(max_length=50)

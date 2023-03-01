@@ -1,11 +1,12 @@
-{% extends 'base.html' %} {% load bootstrap4 %} {% block nav %}
+{% extends 'base.html' %}{% load static %}
+{% load bootstrap4 %} {% block nav %}
 <li class="nav-item cta">
   <a href="{% url 'roommseters:add_property' %}" class="nav-link"
     ><span>Add Listin</span></a
   >
 </li>
 {% endblock nav %} {% block 'body' %}
-<div class="hero-wrap js-fullheight" style="background-color: darkturquoise">
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bggray1.jpg' %});">
   <div class="overlay"></div>
   <div class="container">
     <div
