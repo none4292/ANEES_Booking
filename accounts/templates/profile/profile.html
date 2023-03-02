@@ -160,8 +160,10 @@
               <h2>{{single_user_roomset.title}}</h2>
               <p>{{single_user_roomset.description|truncatechars:40}}</p>
             </div>
-            <div class="cardbtn">
+
+            <div class="cardbtn d-flex justify-content-start ml-auto ">
               <button>click</button>
+
               <form action="{% url 'accounts:delete_post' single_user_roomset.id %}"><button type="submit">Delete</button></form>
               
 
